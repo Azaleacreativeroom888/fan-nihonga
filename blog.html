@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>勉強日記 | 日本画をまなぶ部屋</title>
+<meta name="description" content="日本画の勉強の進み具合を、日付と一言でつづる日記です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7efd9;
+  --cream-deep:#efe3c2;
+  --teal:#008b8b;
+  --red:#8b0000;
+  --ink:#2b2420;
+  --font:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:17px;
+  line-height:1.95;
+  letter-spacing:.04em;
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* ヘッダー */
+.site-header{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:.5rem 2rem;
+  padding:1rem clamp(1rem,5vw,3.5rem);
+  border-bottom:3px solid var(--teal);
+}
+.site-title{font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--teal)}
+.site-nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1.6rem;list-style:none}
+.site-nav a{
+  text-decoration:none;font-weight:500;padding:.2rem 0;
+  border-bottom:2px solid transparent;
+}
+.site-nav a:hover,.site-nav a[aria-current="page"]{border-bottom-color:var(--red);color:var(--red)}
+
+/* ページ見出し */
+.page-head{
+  padding:clamp(2rem,5vw,3.5rem) clamp(1rem,6vw,5rem) 1.5rem;
+  display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
+}
+.page-head .seal{
+  width:3.2rem;height:3.2rem;display:grid;place-items:center;flex:none;
+  background:var(--red);color:var(--cream);
+  font-weight:800;font-size:1.7rem;line-height:1;transform:rotate(-4deg);
+}
+.page-head h1{font-size:clamp(1.8rem,4vw,2.4rem);color:var(--teal);font-weight:800;line-height:1.4}
+.page-head p{flex-basis:100%;max-width:36rem}
+
+/* タイムライン */
+.timeline-wrap{padding:0 clamp(1rem,6vw,5rem) clamp(3rem,7vw,5rem)}
+.timeline{
+  list-style:none;max-width:40rem;
+  border:2px solid var(--teal);background:var(--cream);
+}
+.post{
+  padding:1.1rem 1.4rem 1.3rem;
+  border-bottom:1px solid var(--teal);
+}
+.post:last-child{border-bottom:0}
+.post time{
+  display:block;color:var(--red);font-weight:700;font-size:.95rem;
+  margin-bottom:.2rem;
+}
+.post p{line-height:1.9}
+.post:hover{background:var(--cream-deep)}
+
+.back{margin-top:1.6rem;max-width:40rem}
+.back a{color:var(--red);font-weight:700}
+
+/* フッター */
+.site-footer{
+  background:var(--red);color:var(--cream);
+  padding:2rem clamp(1rem,6vw,5rem);
+  display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;
+  font-size:.92rem;
+}
+.site-footer a{color:var(--cream)}
+
+@media (max-width:760px){
+  .post{padding:1rem 1rem 1.1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-title" href="index.html">日本画をまなぶ部屋</a>
+  <nav class="site-nav" aria-label="メインメニュー">
+    <ul>
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="blog.html" aria-current="page">勉強日記</a></li>
+      <li><a href="gallery.html">ギャラリー</a></li>
+      <li><a href="about.html">このサイトについて</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="page-head">
+    <span class="seal" aria-hidden="true">記</span>
+    <h1>勉強日記</h1>
+    <p>日本画の勉強の進み具合を、日付と一言でつづっています。新しい日記が上に並びます。</p>
+  </div>
+
+  <div class="timeline-wrap">
+    <ol class="timeline" reversed>
+      <!-- 新しい日記は、この下の先頭に追加してください -->
+      <li class="post">
+        <time datetime="2026-10-09">2026.10.09</time>
+        <p>このサイトを作り始めた。まずは岩絵具の種類をひとつずつ覚えていく。</p>
+      </li>
+      <li class="post">
+        <time datetime="2026-10-08">2026.10.08</time>
+        <p>膠を溶かす温度を調べた。熱くしすぎると接着力が落ちるらしい。</p>
+      </li>
+      <li class="post">
+        <time datetime="2026-10-07">2026.10.07</time>
+        <p>和紙の種類を比べた。画材店でサンプルを見てみたい。</p>
+      </li>
+      <li class="post">
+        <time datetime="2026-10-05">2026.10.05</time>
+        <p>骨描きの墨の線を練習した。線の強弱がまだ安定しない。明日も続ける。</p>
+      </li>
+      <li class="post">
+        <time datetime="2026-10-03">2026.10.03</time>
+        <p>水干絵具と岩絵具のちがいをノートにまとめた。粒の大きさで色の濃さが変わるのがおもしろい。</p>
+      </li>
+    </ol>
+    <p class="back"><a href="index.html">トップにもどる</a></p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>© 日本画をまなぶ部屋</p>
+  <p><a href="about.html">このサイトについて</a></p>
+</footer>
+
+</body>
+</html>
