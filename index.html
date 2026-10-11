@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>日本画をまなぶ部屋</title>
+<meta name="description" content="日本画の勉強の記録と、関連のイラスト・漫画・4コマを置いているサイトです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7efd9;
+  --cream-deep:#efe3c2;
+  --teal:#008b8b;
+  --red:#8b0000;
+  --ink:#2b2420;
+  --font:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:17px;
+  line-height:1.95;
+  letter-spacing:.04em;
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* ヘッダー */
+.site-header{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:.5rem 2rem;
+  padding:1rem clamp(1rem,5vw,3.5rem);
+  border-bottom:3px solid var(--teal);
+}
+.site-title{font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--teal)}
+.site-nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1.6rem;list-style:none}
+.site-nav a{
+  text-decoration:none;font-weight:500;padding:.2rem 0;
+  border-bottom:2px solid transparent;
+}
+.site-nav a:hover,.site-nav a[aria-current="page"]{border-bottom-color:var(--red);color:var(--red)}
+
+/* ヒーロー */
+.hero{
+  position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:2rem;
+  padding:clamp(2.5rem,7vw,5.5rem) clamp(1rem,6vw,5rem);
+  min-height:min(78vh,640px);
+}
+.hero::before{
+  content:"";position:absolute;
+  width:clamp(260px,42vw,520px);aspect-ratio:1;border-radius:50%;
+  right:clamp(-60px,4vw,60px);top:50%;transform:translateY(-50%);
+  background:
+    radial-gradient(circle at 30% 30%,rgba(255,255,255,.14) 0 2px,transparent 3px) 0 0/11px 11px,
+    radial-gradient(circle at 70% 60%,rgba(0,0,0,.10) 0 1.5px,transparent 2.5px) 0 0/7px 7px,
+    var(--teal);
+  opacity:.92;z-index:0;
+}
+.hero-text{position:relative;z-index:1;max-width:30rem}
+.hero-text h1{
+  font-size:clamp(1.5rem,3.4vw,2.2rem);line-height:1.6;font-weight:700;
+  color:var(--red);margin-bottom:1.4rem;
+}
+.hero-text p{margin-bottom:1.8rem}
+.btn-row{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{
+  display:inline-block;padding:.65rem 1.6rem;text-decoration:none;font-weight:700;
+  border:2px solid var(--red);
+}
+.btn-fill{background:var(--red);color:var(--cream)}
+.btn-fill:hover{background:var(--cream);color:var(--red)}
+.btn-line{color:var(--red)}
+.btn-line:hover{background:var(--red);color:var(--cream)}
+
+.hero-title{
+  position:relative;z-index:1;
+  display:flex;align-items:flex-start;gap:1.2rem;
+}
+.hero-title h2{
+  writing-mode:vertical-rl;
+  font-size:clamp(4.2rem,11vw,8.5rem);
+  line-height:1.15;letter-spacing:.18em;font-weight:800;
+  color:var(--cream);
+  text-shadow:0 0 1px var(--ink);
+}
+.hero-title .sub{
+  writing-mode:vertical-rl;font-size:1rem;letter-spacing:.35em;
+  color:var(--ink);background:var(--cream);padding:.9rem .35rem;margin-top:.5rem;
+}
+.seal{
+  position:absolute;left:-3.4rem;bottom:.2rem;
+  width:3.2rem;height:3.2rem;display:grid;place-items:center;
+  background:var(--red);color:var(--cream);
+  font-weight:800;font-size:1.7rem;line-height:1;
+  transform:rotate(-4deg);
+  animation:stamp .5s .35s cubic-bezier(.3,1.6,.5,1) both;
+}
+@keyframes stamp{from{transform:rotate(-4deg) scale(2.2);opacity:0}to{transform:rotate(-4deg) scale(1);opacity:1}}
+
+/* 共通セクション */
+section{padding:clamp(2.5rem,6vw,4.5rem) clamp(1rem,6vw,5rem)}
+.section-head{
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:.4rem 1.2rem;
+  border-left:8px solid var(--red);padding-left:1rem;margin-bottom:2rem;
+}
+.section-head h2{font-size:1.6rem;color:var(--teal);font-weight:800}
+.section-head p{font-size:.95rem}
+.band{background:var(--cream-deep)}
+
+/* 日本画とは */
+.about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:2.5rem 4rem;align-items:start}
+.about-grid .lead{max-width:34rem}
+.materials dt{
+  font-weight:800;color:var(--red);font-size:1.15rem;
+  margin-top:1.2rem;
+}
+.materials dt:first-child{margin-top:0}
+.materials dd{padding-bottom:1.1rem;border-bottom:1px solid var(--teal)}
+
+/* 制作の流れ */
+.flow{
+  list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+  counter-reset:step;border-top:3px solid var(--teal);
+}
+.flow li{
+  counter-increment:step;padding:1.2rem 1rem 0 0;position:relative;
+}
+.flow li::before{
+  content:counter(step);
+  position:absolute;top:-1.05rem;left:0;
+  width:1.8rem;height:1.8rem;border-radius:50%;
+  background:var(--red);color:var(--cream);
+  display:grid;place-items:center;font-weight:700;font-size:.9rem;line-height:1;
+}
+.flow li{padding-top:1.4rem}
+.flow strong{display:block;color:var(--teal);font-size:1.1rem}
+.flow span{font-size:.92rem;line-height:1.75;display:block}
+
+/* 最近の日記 */
+.log{list-style:none;max-width:42rem}
+.log li{
+  display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;
+  padding:1rem 0;border-bottom:1px dashed var(--teal);
+}
+.log time{color:var(--red);font-weight:700}
+.more{margin-top:1.6rem}
+.more a{color:var(--red);font-weight:700}
+
+/* ギャラリー案内 */
+.gallery-invite{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem;margin-bottom:2rem}
+.panel{
+  aspect-ratio:3/4;display:flex;align-items:flex-end;padding:1rem;
+  font-weight:700;color:var(--cream);
+  border:2px solid var(--ink);
+}
+.panel.p1{background:var(--teal)}
+.panel.p2{background:var(--red)}
+.panel.p3{background:var(--cream-deep);color:var(--ink);background-image:linear-gradient(var(--ink) 1px,transparent 1px);background-size:100% 50%}
+
+/* フッター */
+.site-footer{
+  background:var(--red);color:var(--cream);
+  padding:2rem clamp(1rem,6vw,5rem);
+  display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;
+  font-size:.92rem;
+}
+.site-footer a{color:var(--cream)}
+
+/* スマホ */
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero::before{top:auto;bottom:-70px;transform:none;right:-70px}
+  .hero-title{order:-1;justify-content:flex-end;padding-right:3.5rem}
+  .hero-title h2{font-size:4.4rem}
+  .about-grid{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr;border-top:0;border-left:3px solid var(--teal)}
+  .flow li{padding:0 0 1.4rem 1.8rem}
+  .flow li::before{top:0;left:-.95rem}
+  .gallery-invite{grid-template-columns:repeat(3,minmax(0,1fr));gap:.6rem}
+  .panel{font-size:.85rem;padding:.6rem}
+  .log li{grid-template-columns:1fr;gap:.1rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .seal{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-title" href="index.html">日本画をまなぶ部屋</a>
+  <nav class="site-nav" aria-label="メインメニュー">
+    <ul>
+      <li><a href="index.html" aria-current="page">トップ</a></li>
+      <li><a href="blog.html">勉強日記</a></li>
+      <li><a href="gallery.html">ギャラリー</a></li>
+      <li><a href="about.html">このサイトについて</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="hero-text">
+      <h1>岩絵具の粒を重ねて、<br>ゆっくり日本画を学んでいます。</h1>
+      <p>日本画の技法や材料、模写で気づいたことを記録している個人サイトです。勉強の進み具合は日記に、描いた絵や漫画はギャラリーにまとめています。</p>
+      <div class="btn-row">
+        <a class="btn btn-fill" href="blog.html">勉強日記を読む</a>
+        <a class="btn btn-line" href="gallery.html">ギャラリーを見る</a>
+      </div>
+    </div>
+    <div class="hero-title">
+      <h2>日本画</h2>
+      <p class="sub">勉強の記録帖</p>
+      <span class="seal" aria-hidden="true">学</span>
+    </div>
+  </div>
+
+  <section class="band" id="about-nihonga">
+    <div class="section-head">
+      <h2>日本画ってなに？</h2>
+      <p>勉強中の基本メモ</p>
+    </div>
+    <div class="about-grid">
+      <p class="lead">日本画は、鉱物や貝殻から作った絵具を、膠（にかわ）で紙や絹に定着させて描く絵画です。粒の大きさや重ね方で色の深さが変わるので、同じ青でも、塗るたびに表情が違います。</p>
+      <dl class="materials">
+        <dt>岩絵具</dt>
+        <dd>孔雀石や藍銅鉱などの鉱物を砕いた絵具。粒が粗いほど色は濃く、細かいほど白っぽくなります。</dd>
+        <dt>膠</dt>
+        <dd>動物の皮や骨から作る接着剤。お湯で溶かして絵具と混ぜ、粒を紙にくっつけます。</dd>
+        <dt>和紙と絹</dt>
+        <dd>絵を支える土台。紙の繊維の細かさや、ドーサ引きの具合で、にじみ方が大きく変わります。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="section-head">
+      <h2>描くときの流れ</h2>
+      <p>いま練習している順番です</p>
+    </div>
+    <ol class="flow">
+      <li><strong>下図</strong><span>構図と形を決めて、紙に写します。</span></li>
+      <li><strong>骨描き</strong><span>墨の線で、輪郭をしっかりとります。</span></li>
+      <li><strong>下塗り</strong><span>水干絵具で、全体の色の土台を作ります。</span></li>
+      <li><strong>彩色</strong><span>岩絵具を、薄く何度も重ねます。</span></li>
+      <li><strong>仕上げ</strong><span>線を整え、全体のバランスを見ます。</span></li>
+    </ol>
+  </section>
+
+  <section class="band" id="recent">
+    <div class="section-head">
+      <h2>最近の勉強日記</h2>
+      <p>ひとこと日記です</p>
+    </div>
+    <ul class="log">
+      <li><time datetime="2026-10-09">2026.10.09</time><span>このサイトを作り始めた。まずは岩絵具の種類をひとつずつ覚えていく。</span></li>
+      <li><time datetime="2026-10-08">2026.10.08</time><span>膠を溶かす温度を調べた。熱くしすぎると接着力が落ちるらしい。</span></li>
+      <li><time datetime="2026-10-07">2026.10.07</time><span>和紙の種類を比べた。画材店でサンプルを見てみたい。</span></li>
+    </ul>
+    <p class="more"><a href="blog.html">日記をぜんぶ読む</a></p>
+  </section>
+
+  <section id="gallery-invite">
+    <div class="section-head">
+      <h2>ギャラリー</h2>
+      <p>絵と漫画と、ちょっとしたコラム</p>
+    </div>
+    <div class="gallery-invite" aria-hidden="true">
+      <div class="panel p1">イラスト</div>
+      <div class="panel p2">漫画</div>
+      <div class="panel p3">4コマ</div>
+    </div>
+    <p>日本画に関係するイラストや漫画、4コマを置いています。勉強して思ったことを書く、短いコラムもあります。</p>
+    <p class="more"><a href="gallery.html">ギャラリーへ行く</a></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>© 日本画をまなぶ部屋</p>
+  <p><a href="about.html">このサイトについて</a></p>
+</footer>
+
+</body>
+</html>
