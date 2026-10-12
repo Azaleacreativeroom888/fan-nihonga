@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>このサイトについて | 日本画をまなぶ部屋</title>
+<meta name="description" content="日本画をまなぶ部屋の紹介と、リンク、お問い合わせフォームのページです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7efd9;
+  --cream-deep:#efe3c2;
+  --teal:#008b8b;
+  --red:#8b0000;
+  --ink:#2b2420;
+  --font:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:17px;
+  line-height:1.95;
+  letter-spacing:.04em;
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* ヘッダー */
+.site-header{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:.5rem 2rem;
+  padding:1rem clamp(1rem,5vw,3.5rem);
+  border-bottom:3px solid var(--teal);
+}
+.site-title{font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--teal)}
+.site-nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1.6rem;list-style:none}
+.site-nav a{
+  text-decoration:none;font-weight:500;padding:.2rem 0;
+  border-bottom:2px solid transparent;
+}
+.site-nav a:hover,.site-nav a[aria-current="page"]{border-bottom-color:var(--red);color:var(--red)}
+
+/* ページ見出し */
+.page-head{
+  padding:clamp(2rem,5vw,3.5rem) clamp(1rem,6vw,5rem) 1.5rem;
+  display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
+}
+.page-head .seal{
+  width:3.2rem;height:3.2rem;display:grid;place-items:center;flex:none;
+  background:var(--red);color:var(--cream);
+  font-weight:800;font-size:1.7rem;line-height:1;transform:rotate(-4deg);
+}
+.page-head h1{font-size:clamp(1.8rem,4vw,2.4rem);color:var(--teal);font-weight:800;line-height:1.4}
+.page-head p{flex-basis:100%;max-width:36rem}
+
+/* セクション共通 */
+section{padding:clamp(2.2rem,5vw,3.8rem) clamp(1rem,6vw,5rem)}
+.band{background:var(--cream-deep)}
+.section-head{
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:.4rem 1.2rem;
+  border-left:8px solid var(--red);padding-left:1rem;margin-bottom:2rem;
+}
+.section-head h2{font-size:1.6rem;color:var(--teal);font-weight:800}
+.section-head p{font-size:.95rem}
+
+/* サイト紹介 */
+.intro{max-width:40rem}
+.intro p+p{margin-top:1rem}
+.profile{
+  margin-top:2rem;max-width:40rem;
+  border:2px solid var(--teal);background:var(--cream);
+}
+.profile div{display:grid;grid-template-columns:7rem 1fr;gap:1rem;padding:.8rem 1.2rem;border-bottom:1px solid var(--teal)}
+.profile div:last-child{border-bottom:0}
+.profile dt{color:var(--red);font-weight:700}
+
+/* リンク */
+.link-group+.link-group{margin-top:2rem}
+.group-label{color:var(--red);font-weight:800;margin-bottom:.8rem}
+.link-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+.link-card{
+  display:flex;align-items:center;gap:1rem;
+  text-decoration:none;
+  background:var(--cream);
+  border:2px solid var(--teal);
+  border-left:8px solid var(--red);
+  padding:.8rem 1rem;
+}
+.link-card:hover{background:var(--teal);color:var(--cream)}
+.link-card:hover .link-desc{color:var(--cream)}
+.link-icon{
+  flex:none;width:2.6rem;height:2.6rem;display:grid;place-items:center;
+  font-size:1.4rem;line-height:1;
+  border:1px solid var(--teal);background:var(--cream);
+}
+.link-text{flex:1;min-width:0}
+.link-name{display:block;font-weight:800;line-height:1.5}
+.link-desc{display:block;font-size:.85rem;line-height:1.5;color:var(--ink)}
+.link-arrow{flex:none;font-size:1.4rem;color:var(--red)}
+.link-card:hover .link-arrow{color:var(--cream)}
+
+/* フォーム */
+.form-card{
+  max-width:40rem;
+  background:var(--cream);
+  border:2px solid var(--teal);
+  border-left:8px solid var(--red);
+  padding:1.6rem clamp(1rem,4vw,2rem);
+}
+.form-intro{margin-bottom:1.4rem}
+.form-group{margin-bottom:1.1rem}
+.form-label{display:block;font-weight:700;color:var(--teal);margin-bottom:.2rem}
+.required{color:var(--red);font-style:normal}
+.form-input,.form-textarea{
+  width:100%;
+  font-family:var(--font);font-size:1rem;letter-spacing:.04em;
+  color:var(--ink);background:#fffaf0;
+  border:2px solid var(--teal);border-radius:0;
+  padding:.6rem .8rem;
+}
+.form-input::placeholder,.form-textarea::placeholder{color:#7a6e60}
+.form-input:focus,.form-textarea:focus{outline:3px solid var(--red);outline-offset:1px}
+.form-textarea{resize:vertical;min-height:9rem}
+.field-error{display:block;color:var(--red);font-size:.9rem;margin-top:.2rem}
+.form-submit{
+  font-family:var(--font);font-size:1rem;font-weight:700;letter-spacing:.1em;
+  background:var(--red);color:var(--cream);
+  border:2px solid var(--red);padding:.65rem 2rem;cursor:pointer;
+}
+.form-submit:hover{background:var(--cream);color:var(--red)}
+.form-submit:disabled{opacity:.5;cursor:not-allowed}
+.form-success{
+  border:2px solid var(--teal);background:var(--cream-deep);color:var(--teal);
+  font-weight:700;padding:.8rem 1rem;margin-bottom:1.2rem;text-align:center;
+}
+.form-error-global{
+  border:2px solid var(--red);color:var(--red);
+  padding:.8rem 1rem;margin-bottom:1.2rem;
+}
+
+.back{margin-top:1.6rem}
+.back a{color:var(--red);font-weight:700}
+
+/* フッター */
+.site-footer{
+  background:var(--red);color:var(--cream);
+  padding:2rem clamp(1rem,6vw,5rem);
+  font-size:.9rem;line-height:1.9;
+}
+.site-footer p+p{margin-top:.6rem}
+.site-footer .copy{margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--cream)}
+
+@media (max-width:600px){
+  .profile div{grid-template-columns:1fr;gap:0}
+  .link-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-title" href="index.html">日本画をまなぶ部屋</a>
+  <nav class="site-nav" aria-label="メインメニュー">
+    <ul>
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="blog.html">勉強日記</a></li>
+      <li><a href="gallery.html">ギャラリー</a></li>
+      <li><a href="about.html" aria-current="page">このサイトについて</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="page-head">
+    <span class="seal" aria-hidden="true">紹</span>
+    <h1>このサイトについて</h1>
+    <p>サイトの紹介と、リンク、お問い合わせフォームのページです。</p>
+  </div>
+
+  <section id="site">
+    <div class="section-head">
+      <h2>サイトの紹介</h2>
+      <p>どんなサイトなのか</p>
+    </div>
+    <div class="intro">
+      <p>「日本画をまなぶ部屋」は、日本画を勉強している記録をまとめた個人サイトです。岩絵具や膠、和紙のことを調べながら、少しずつ描き方を学んでいます。</p>
+      <p>勉強の進み具合は「勉強日記」に、描いた絵や漫画、4コマ、短いコラムは「ギャラリー」に置いています。</p>
+    </div>
+    <dl class="profile">
+      <div><dt>サイト名</dt><dd>日本画をまなぶ部屋</dd></div>
+      <div><dt>管理人</dt><dd>Azalea72</dd></div>
+      <div><dt>内容</dt><dd>日本画の勉強記録、イラスト、漫画、4コマ、コラム</dd></div>
+    </dl>
+  </section>
+
+  <section class="band" id="links">
+    <div class="section-head">
+      <h2>リンク</h2>
+      <p>作品や近況はこちらにもあります</p>
+    </div>
+
+    <div class="link-group">
+      <p class="group-label">漫画・イラスト掲載サイト</p>
+      <div class="link-grid">
+        <a class="link-card" href="https://rookie.shonenjump.com/users/14728546961183734555" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">📚</span>
+          <span class="link-text">
+            <span class="link-name">ジャンプルーキー</span>
+            <span class="link-desc">オリジナル漫画を掲載中</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+        <a class="link-card" href="https://www.pixiv.net/users/105728284" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">🎨</span>
+          <span class="link-text">
+            <span class="link-name">Pixiv</span>
+            <span class="link-desc">二次創作はこちらに掲載</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="link-group">
+      <p class="group-label">SNS・その他</p>
+      <div class="link-grid">
+        <a class="link-card" href="https://bsky.app/profile/azaleaazalea88.bsky.social" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">🦋</span>
+          <span class="link-text">
+            <span class="link-name">Bluesky</span>
+            <span class="link-desc">近況・作品のお知らせ</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+        <a class="link-card" href="https://www.youtube.com/@LilyPopins0512" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">🎬</span>
+          <span class="link-text">
+            <span class="link-name">YouTube（リリポピ）</span>
+            <span class="link-desc">動画チャンネル</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+        <a class="link-card" href="https://lilipopi.github.io/lilypopins/" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">🌸</span>
+          <span class="link-text">
+            <span class="link-name">リリポピのホームページ</span>
+            <span class="link-desc">別サイト</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="link-group">
+      <p class="group-label">Azalea72のホームページ</p>
+      <div class="link-grid">
+        <a class="link-card" href="https://azaleacreativeroom888.github.io/storyreviewazalea/" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">📖</span>
+          <span class="link-text">
+            <span class="link-name">書評サイト</span>
+            <span class="link-desc">本・アニメ・映画・ゲーム・小説の備忘録</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+        <a class="link-card" href="https://azaleacreativeroom888.github.io/fan-english/" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">🍔</span>
+          <span class="link-text">
+            <span class="link-name">英語サイト（English Site）</span>
+            <span class="link-desc">英語話者と英語学習者に向けたサイト</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+        <a class="link-card" href="https://azaleacreativeroom888.github.io/fan-watercolor/" target="_blank" rel="noopener">
+          <span class="link-icon" aria-hidden="true">☁️</span>
+          <span class="link-text">
+            <span class="link-name">水彩画サイト</span>
+            <span class="link-desc">水彩画掲載</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">›</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-head">
+      <h2>お問い合わせフォーム</h2>
+      <p>ご質問・ご感想はこちらから</p>
+    </div>
+
+    <div class="form-card">
+      <p class="form-intro">ご質問・ご感想などはこちらからどうぞ。Gmailで受け取り、返信いたします。</p>
+
+      <div data-fs-success class="form-success" style="display:none;">
+        <p>メッセージを送信しました。ありがとうございます！</p>
+      </div>
+      <div data-fs-error class="form-error-global" style="display:none;"></div>
+
+      <form id="contact-form" action="https://formspree.io/f/maqvpvoz" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="name">お名前</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="お名前（ニックネームでもOK）">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">メールアドレス <span class="required">*</span></label>
+          <input class="form-input" type="email" id="email" name="email" data-fs-field placeholder="example@email.com" required>
+          <span data-fs-error="email" class="field-error"></span>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">メッセージ <span class="required">*</span></label>
+          <textarea class="form-textarea" id="message" name="message" data-fs-field placeholder="メッセージを入力してください" rows="6" required></textarea>
+          <span data-fs-error="message" class="field-error"></span>
+        </div>
+        <button class="form-submit" type="submit" data-fs-submit-btn>送信する</button>
+      </form>
+    </div>
+
+    <p class="back"><a href="index.html">トップにもどる</a></p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>当サイトに掲載されている画像・文章・作品について、AI学習への利用、トレース（トレパク）、無断転載、二次利用を禁止します。スクリーンショットの転載・無断引用はご遠慮ください。</p>
+  <p>Please refrain from using any images, text, or works on this website for AI training, tracing, unauthorized reproduction, redistribution, or secondary use.</p>
+  <p class="copy">© 日本画をまなぶ部屋</p>
+</footer>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'maqvpvoz' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+</body>
+</html>
