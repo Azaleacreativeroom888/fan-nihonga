@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ギャラリー | 日本画をまなぶ部屋</title>
+<meta name="description" content="日本画に関係するイラスト、漫画、4コマ、短いコラムを置いているページです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f7efd9;
+  --cream-deep:#efe3c2;
+  --teal:#008b8b;
+  --red:#8b0000;
+  --ink:#2b2420;
+  --font:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho","YuMincho",serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--font);
+  font-size:17px;
+  line-height:1.95;
+  letter-spacing:.04em;
+}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* ヘッダー */
+.site-header{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:.5rem 2rem;
+  padding:1rem clamp(1rem,5vw,3.5rem);
+  border-bottom:3px solid var(--teal);
+}
+.site-title{font-weight:800;font-size:1.15rem;text-decoration:none;color:var(--teal)}
+.site-nav ul{display:flex;flex-wrap:wrap;gap:.25rem 1.6rem;list-style:none}
+.site-nav a{
+  text-decoration:none;font-weight:500;padding:.2rem 0;
+  border-bottom:2px solid transparent;
+}
+.site-nav a:hover,.site-nav a[aria-current="page"]{border-bottom-color:var(--red);color:var(--red)}
+
+/* ページ見出し */
+.page-head{
+  padding:clamp(2rem,5vw,3.5rem) clamp(1rem,6vw,5rem) 1.5rem;
+  display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;
+}
+.page-head .seal{
+  width:3.2rem;height:3.2rem;display:grid;place-items:center;flex:none;
+  background:var(--red);color:var(--cream);
+  font-weight:800;font-size:1.7rem;line-height:1;transform:rotate(-4deg);
+}
+.page-head h1{font-size:clamp(1.8rem,4vw,2.4rem);color:var(--teal);font-weight:800;line-height:1.4}
+.page-head p{flex-basis:100%;max-width:36rem}
+.jump{
+  list-style:none;display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;
+  padding:0 clamp(1rem,6vw,5rem) 1rem;
+}
+.jump a{color:var(--red);font-weight:700;text-decoration:none;border-bottom:2px solid var(--red)}
+.jump a:hover{background:var(--red);color:var(--cream)}
+
+/* セクション共通 */
+section{padding:clamp(2.2rem,5vw,3.8rem) clamp(1rem,6vw,5rem)}
+.band{background:var(--cream-deep)}
+.section-head{
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:.4rem 1.2rem;
+  border-left:8px solid var(--red);padding-left:1rem;margin-bottom:2rem;
+}
+.section-head h2{font-size:1.6rem;color:var(--teal);font-weight:800}
+.section-head p{font-size:.95rem}
+
+/* 作品の枠 */
+figure{margin:0}
+.frame{
+  width:100%;
+  border:2px solid var(--ink);
+  background:var(--cream);
+  display:grid;place-items:center;
+  color:var(--teal);font-size:.9rem;text-align:center;
+  background-image:repeating-linear-gradient(45deg,transparent 0 10px,rgba(0,139,139,.08) 10px 11px);
+}
+.frame img{width:100%;height:100%;object-fit:cover;display:block}
+figcaption{padding-top:.5rem;font-size:.95rem;line-height:1.7}
+figcaption b{color:var(--red);display:block}
+
+.grid-illust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
+.grid-illust .frame{aspect-ratio:3/4}
+
+.grid-manga{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem;max-width:44rem}
+.grid-manga .frame{aspect-ratio:2/3}
+
+/* 4コマ */
+.grid-4koma{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6rem}
+.koma{
+  border:2px solid var(--ink);background:var(--cream);
+  display:grid;grid-template-rows:repeat(4,1fr);gap:0;
+}
+.koma .cell{
+  min-height:7rem;border-bottom:2px solid var(--ink);
+  display:grid;place-items:center;color:var(--teal);font-size:.85rem;
+  position:relative;
+}
+.koma .cell:last-child{border-bottom:0}
+.koma .cell::before{
+  content:attr(data-n);position:absolute;top:.3rem;left:.5rem;
+  color:var(--red);font-weight:800;
+}
+.koma img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* コラム */
+.columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem 3rem;max-width:62rem}
+.column-item{border-top:3px solid var(--teal);padding-top:.8rem}
+.column-item time{color:var(--red);font-weight:700;font-size:.95rem}
+.column-item h3{font-size:1.25rem;color:var(--teal);line-height:1.6;margin-bottom:.4rem}
+
+/* 特集ページへのリンクボックス */
+.report-box{
+  display:flex;align-items:center;gap:1.2rem;
+  max-width:40rem;text-decoration:none;
+  background:var(--cream);
+  border:2px solid var(--teal);
+  border-left:8px solid var(--red);
+  padding:1.2rem 1.4rem;
+}
+.report-box:hover{background:var(--teal);color:var(--cream)}
+.report-box:hover .report-label,
+.report-box:hover .report-title,
+.report-box:hover .report-arrow{color:var(--cream)}
+.report-text{flex:1;min-width:0}
+.report-label{display:block;color:var(--red);font-weight:700;font-size:.9rem}
+.report-title{display:block;color:var(--teal);font-weight:800;font-size:1.4rem;line-height:1.6}
+.report-desc{display:block;font-size:.95rem;line-height:1.7}
+.report-arrow{flex:none;color:var(--red);font-size:2rem;line-height:1}
+
+/* フッター */
+.site-footer{
+  background:var(--red);color:var(--cream);
+  padding:2rem clamp(1rem,6vw,5rem);
+  display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;
+  font-size:.92rem;
+}
+.site-footer a{color:var(--cream)}
+
+@media (max-width:760px){
+  .grid-illust,.grid-4koma{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+  .grid-manga{gap:1rem}
+  .columns{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  .grid-4koma{grid-template-columns:1fr;max-width:16rem}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-title" href="index.html">日本画をまなぶ部屋</a>
+  <nav class="site-nav" aria-label="メインメニュー">
+    <ul>
+      <li><a href="index.html">トップ</a></li>
+      <li><a href="blog.html">勉強日記</a></li>
+      <li><a href="gallery.html" aria-current="page">ギャラリー</a></li>
+      <li><a href="about.html">このサイトについて</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="page-head">
+    <span class="seal" aria-hidden="true">画</span>
+    <h1>ギャラリー</h1>
+    <p>日本画に関係するイラストや漫画、4コマを置いています。最後には、勉強しながら思ったことを書く短いコラムもあります。</p>
+  </div>
+
+  <ul class="jump" aria-label="ページ内リンク">
+    <li><a href="#illust">イラスト</a></li>
+    <li><a href="#manga">漫画</a></li>
+    <li><a href="#yonkoma">4コマ</a></li>
+    <li><a href="#column">コラム</a></li>
+    <li><a href="#report">企画展の感想</a></li>
+  </ul>
+
+  <!--
+    絵の入れ方：
+    <div class="frame">…</div> の中身を <img src="画像ファイル名" alt="絵の説明"> に書き換えてください。
+  -->
+
+  <section id="illust">
+    <div class="section-head">
+      <h2>イラスト</h2>
+      <p>模写や、日本画風に描いた絵</p>
+    </div>
+    <div class="grid-illust">
+      <figure>
+        <div class="frame">イラスト 1</div>
+        <figcaption><b>作品のタイトル</b>ひとこと説明を入れます。</figcaption>
+      </figure>
+      <figure>
+        <div class="frame">イラスト 2</div>
+        <figcaption><b>作品のタイトル</b>ひとこと説明を入れます。</figcaption>
+      </figure>
+      <figure>
+        <div class="frame">イラスト 3</div>
+        <figcaption><b>作品のタイトル</b>ひとこと説明を入れます。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" id="manga">
+    <div class="section-head">
+      <h2>漫画</h2>
+      <p>日本画にまつわる短い漫画</p>
+    </div>
+    <div class="grid-manga">
+      <figure>
+        <div class="frame">漫画 1ページ目</div>
+        <figcaption><b>漫画のタイトル</b>あらすじを一言で書きます。</figcaption>
+      </figure>
+      <figure>
+        <div class="frame">漫画 2ページ目</div>
+        <figcaption><b>漫画のタイトル</b>あらすじを一言で書きます。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="yonkoma">
+    <div class="section-head">
+      <h2>4コマ</h2>
+      <p>勉強中のあるあるを4コマに</p>
+    </div>
+    <div class="grid-4koma">
+      <figure>
+        <div class="koma">
+          <div class="cell" data-n="1">起</div>
+          <div class="cell" data-n="2">承</div>
+          <div class="cell" data-n="3">転</div>
+          <div class="cell" data-n="4">結</div>
+        </div>
+        <figcaption><b>4コマのタイトル</b>膠が固まった話、など。</figcaption>
+      </figure>
+      <figure>
+        <div class="koma">
+          <div class="cell" data-n="1">起</div>
+          <div class="cell" data-n="2">承</div>
+          <div class="cell" data-n="3">転</div>
+          <div class="cell" data-n="4">結</div>
+        </div>
+        <figcaption><b>4コマのタイトル</b>岩絵具の粒が飛んだ話、など。</figcaption>
+      </figure>
+      <figure>
+        <div class="koma">
+          <div class="cell" data-n="1">起</div>
+          <div class="cell" data-n="2">承</div>
+          <div class="cell" data-n="3">転</div>
+          <div class="cell" data-n="4">結</div>
+        </div>
+        <figcaption><b>4コマのタイトル</b>画材店で迷った話、など。</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" id="column">
+    <div class="section-head">
+      <h2>コラム</h2>
+      <p>勉強していて思ったこと</p>
+    </div>
+    <div class="columns">
+      <article class="column-item">
+        <time datetime="2026-10-09">2026.10.09</time>
+        <h3>粒の大きさで、色が変わる</h3>
+        <p>日本画の絵具は、同じ青でも粒が粗いと濃く、細かいと白っぽくなります。絵具を混ぜるより、粒をそろえて重ねるほうが大事だと知って、色のつくり方の見方が変わりました。</p>
+      </article>
+      <article class="column-item">
+        <time datetime="2026-10-07">2026.10.07</time>
+        <h3>漫画と日本画の、意外な共通点</h3>
+        <p>墨の線で形をとるところは、漫画のペン入れとよく似ています。線の強弱で奥行きを出す考え方は、これから漫画にも生かしていきたいです。</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="report">
+    <div class="section-head">
+      <h2>特集</h2>
+      <p>展覧会に行って感じたこと</p>
+    </div>
+    <a class="report-box" href="report1.html">
+      <span class="report-text">
+        <span class="report-label">特集ページ</span>
+        <span class="report-title">企画展の感想</span>
+        <span class="report-desc">行ってきた企画展で見た日本画の感想を書いています。</span>
+      </span>
+      <span class="report-arrow" aria-hidden="true">›</span>
+    </a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>© 日本画をまなぶ部屋</p>
+  <p><a href="about.html">このサイトについて</a></p>
+</footer>
+
+</body>
+</html>
