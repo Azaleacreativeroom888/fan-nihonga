@@ -98,17 +98,6 @@ a{color:inherit}
 }
 
 /* 好きな絵画 */
-.favorite{
-  display:grid;grid-template-columns:9rem 1fr;gap:1rem 1.4rem;align-items:start;
-}
-.favorite .frame{
-  aspect-ratio:3/4;width:100%;
-  border:2px solid var(--ink);
-  display:grid;place-items:center;text-align:center;
-  color:var(--teal);font-size:.85rem;line-height:1.5;
-  background-image:repeating-linear-gradient(45deg,transparent 0 10px,rgba(0,139,139,.08) 10px 11px);
-}
-.favorite .frame img{width:100%;height:100%;object-fit:cover;display:block}
 .painting-title{font-weight:800;font-size:1.1rem;line-height:1.6}
 .painting-artist{color:var(--red);font-weight:700;font-size:.95rem}
 
@@ -125,7 +114,6 @@ a{color:inherit}
 .site-footer a{color:var(--cream)}
 
 @media (max-width:600px){
-  .favorite{grid-template-columns:7rem 1fr}
   .field,.report-head{padding-left:1rem;padding-right:1rem}
 }
 @media (prefers-reduced-motion:reduce){
@@ -166,14 +154,13 @@ a{color:inherit}
     新しい企画展の足し方：
     下の <li class="report" id="report-◯"> のかたまりを、<ol class="report-list"> の先頭にコピーして書き換えてください。
     目次（上の「企画展の一覧」）にもリンクを足してください。
-    好きな絵画の画像は、<div class="frame">…</div> の中身を <img src="ファイル名" alt="絵の説明"> にすると入ります。
   -->
   <ol class="report-list">
 
     <li class="report" id="report-2">
       <div class="report-head">
-        <p class="period">開催時期：2026年○月○日〜○月○日</p>
-        <h2>企画展の名前を入れます</h2>
+        <p class="period">開催時期：2026年7月25日〜10月18日</p>
+        <h2>大英博物館日本美術コレクション　百花繚乱～海を越えた江戸絵画</h2>
       </div>
       <div class="field">
         <h3>感想</h3>
@@ -182,7 +169,6 @@ a{color:inherit}
       <div class="field">
         <h3>見つけた好きな絵画</h3>
         <div class="favorite">
-          <div class="frame">絵画の<br>画像</div>
           <div>
             <p class="painting-title">絵画のタイトル</p>
             <p class="painting-artist">作者の名前</p>
@@ -204,7 +190,6 @@ a{color:inherit}
       <div class="field">
         <h3>見つけた好きな絵画</h3>
         <div class="favorite">
-          <div class="frame">絵画の<br>画像</div>
           <div>
             <p class="painting-title">絵画のタイトル</p>
             <p class="painting-artist">作者の名前</p>
