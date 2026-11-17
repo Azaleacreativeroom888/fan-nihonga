@@ -127,6 +127,7 @@ figcaption b{color:var(--red);display:block}
   border-left:8px solid var(--red);
   padding:1.2rem 1.4rem;
 }
+.report-box+.report-box{margin-top:1.2rem}
 .report-box:hover{background:var(--teal);color:var(--cream)}
 .report-box:hover .report-label,
 .report-box:hover .report-title,
@@ -185,7 +186,7 @@ figcaption b{color:var(--red);display:block}
     <li><a href="#manga">漫画</a></li>
     <li><a href="#yonkoma">4コマ</a></li>
     <li><a href="#column">コラム</a></li>
-    <li><a href="#report">企画展の感想</a></li>
+    <li><a href="#report">特集</a></li>
   </ul>
 
   <!--
@@ -289,13 +290,21 @@ figcaption b{color:var(--red);display:block}
   <section id="report">
     <div class="section-head">
       <h2>特集</h2>
-      <p>展覧会に行って感じたこと</p>
+      <p>もっと読みたい人へ</p>
     </div>
     <a class="report-box" href="report1.html">
       <span class="report-text">
-        <span class="report-label">特集ページ</span>
+        <span class="report-label">特集ページ 1</span>
         <span class="report-title">企画展の感想</span>
         <span class="report-desc">行ってきた企画展で見た日本画の感想を書いています。</span>
+      </span>
+      <span class="report-arrow" aria-hidden="true">›</span>
+    </a>
+    <a class="report-box" href="report2.html">
+      <span class="report-text">
+        <span class="report-label">特集ページ 2</span>
+        <span class="report-title">日本画に関する人物</span>
+        <span class="report-desc">日本画の画家など、日本画に関わりのある人物をまとめています。</span>
       </span>
       <span class="report-arrow" aria-hidden="true">›</span>
     </a>
